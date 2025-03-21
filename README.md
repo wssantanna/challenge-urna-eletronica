@@ -20,7 +20,7 @@ O foco dessa avaliação é a comunicação entre o backend e o aplicativo mobil
 
 ## Como proceder
 
-Por favor, realize o FORK desse repositório e implemente sua solução no FORK em seu repositório GItHub, ao final, notifique da conclusão para que possamos analisar o código implementado.
+Por favor, **CLONE** o repositório e implemente sua solução, ao final, notifique a conclusão e envie o link do seu repositório clonado no GitHub, para que possamos analisar o código implementado.
 
 Lembre de deixar todas as orientações necessárias para executar o seu código.
 
