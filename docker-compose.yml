@@ -1,0 +1,7 @@
+services:
+  urna-app:
+    build: .
+    container_name: urna-application
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
