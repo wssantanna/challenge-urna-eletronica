@@ -1,6 +1,6 @@
 # &lt;db&gt; Challenge Urna Eletrônica
 
-Desafio para o desenvolvimento de uma aplicação de Urna Eletrônica.
+Desafio proposto pela empresa DB Server para o desenvolvimento de uma aplicação de Urna Eletrônica.
 
 ## Tecnologias
 
@@ -41,4 +41,10 @@ mvn test
 
 ## Acesso
 
-- [Documentação](http://localhost:8080/swagger-ui/index.html)
+### Local
+
+Após a inicialização do projeto:
+
+| Descrição | URL |
+|-- | -- | 
+| Documentação | `http://localhost:8080/swagger-ui/index.html` |
