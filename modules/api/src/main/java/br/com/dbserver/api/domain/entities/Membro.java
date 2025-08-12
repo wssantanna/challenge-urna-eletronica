@@ -6,7 +6,7 @@ import jakarta.validation.Valid;
 import java.util.Objects;
 import java.util.UUID;
 
-import br.com.dbserver.api.domain.utils.Cpf;
+import br.com.dbserver.api.domain.utils.type.Cpf;
 
 @Entity
 @Table(name = "membros", uniqueConstraints = {
@@ -17,11 +17,11 @@ public class Membro {
     @Column(name = "id_membro")
     private UUID idMembro;
     @NotBlank(message = "O campo 'nome' é obrigatório e não pode estar vazio.")
-    @Column(name = "nome", nullable = false, length = 255)
+    @Column(name = "nome", nullable = false, length = 120)
     private String nome;
     @Valid
     @Embedded
-    @AttributeOverride(name = "numero", column = @Column(name = "cpf", nullable = false, length = 11))
+    @AttributeOverride(name = "currentCpf", column = @Column(name = "cpf", nullable = false, length = 11))
     private Cpf cpf;
 
     public Membro() {

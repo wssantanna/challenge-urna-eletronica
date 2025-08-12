@@ -1,5 +1,6 @@
 package br.com.dbserver.api.domain.entities;
 
+import br.com.dbserver.api.domain.utils.constants.ValidationMessages;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import java.time.OffsetDateTime;
@@ -12,10 +13,10 @@ public class Pauta {
     @Id
     @Column(name = "id_pauta")
     private UUID idPauta;
-    @NotBlank(message = "O campo 'titulo' é obrigatório e não pode estar vazio.")
-    @Column(name = "titulo", nullable = false, length = 255)
+    @NotBlank(message = ValidationMessages.PAUTA_TITULO_OBRIGATORIO)
+    @Column(name = "titulo", nullable = false, length = 120)
     private String titulo;
-    @NotBlank(message = "O campo 'descricao' é obrigatório e não pode estar vazio.")
+    @NotBlank(message = ValidationMessages.PAUTA_DESCRICAO_OBRIGATORIA)
     @Column(name = "descricao", nullable = false, columnDefinition = "TEXT")
     private String descricao;
     @Column(name = "criada_em", nullable = false)
