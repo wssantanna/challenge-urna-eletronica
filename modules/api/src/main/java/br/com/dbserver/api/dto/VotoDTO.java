@@ -14,19 +14,19 @@ import java.util.UUID;
  */
 @Schema(description = "Dados de um voto")
 public class VotoDTO {
-    @Schema(description = "Identificador único do voto")
+    @Schema(description = "Identificador único do voto", example = "550e8400-e29b-41d4-a716-446655440003")
     private UUID idVoto;
     
-    @Schema(description = "Identificador da assembleia")
+    @Schema(description = "Identificador da assembleia", example = "550e8400-e29b-41d4-a716-446655440002")
     private UUID assembleiaId;
     
-    @Schema(description = "Identificador do membro")
+    @Schema(description = "Identificador do membro", example = "550e8400-e29b-41d4-a716-446655440005")
     private UUID membroId;
     
-    @Schema(description = "Decisão do voto")
+    @Schema(description = "Decisão do voto", example = "Concordo")
     private Decisao decisao;
     
-    @Schema(description = "Data e hora do registro do voto")
+    @Schema(description = "Data e hora do registro do voto", example = "2024-01-15T14:30:00Z")
     private OffsetDateTime registradoEm;
 
     /**

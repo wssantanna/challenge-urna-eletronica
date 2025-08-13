@@ -14,11 +14,11 @@ import jakarta.validation.constraints.Size;
 public class PautaCreateDTO {
     @NotBlank(message = "O título da pauta é obrigatório")
     @Size(max = 120, message = "O título deve ter no máximo 120 caracteres")
-    @Schema(description = "Título da pauta", required = true, maxLength = 120)
+    @Schema(description = "Título da pauta", required = true, maxLength = 120, example = "Aprovação do orçamento anual")
     private String titulo;
     
     @NotBlank(message = "A descrição da pauta é obrigatória")
-    @Schema(description = "Descrição detalhada da pauta", required = true)
+    @Schema(description = "Descrição detalhada da pauta", required = true, example = "Discussão e votação sobre o orçamento da empresa para o próximo ano fiscal")
     private String descricao;
 
     /**

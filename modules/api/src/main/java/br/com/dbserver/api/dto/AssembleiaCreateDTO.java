@@ -14,7 +14,7 @@ import java.util.UUID;
 @Schema(description = "Dados para criação de uma assembleia")
 public class AssembleiaCreateDTO {
     @NotNull(message = "O ID da pauta é obrigatório")
-    @Schema(description = "Identificador da pauta que será votada na assembleia", required = true)
+    @Schema(description = "Identificador da pauta que será votada na assembleia", required = true, example = "550e8400-e29b-41d4-a716-446655440001")
     private UUID pautaId;
 
     /**

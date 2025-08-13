@@ -13,16 +13,16 @@ import java.util.UUID;
  */
 @Schema(description = "Dados de uma pauta")
 public class PautaDTO {
-    @Schema(description = "Identificador único da pauta")
+    @Schema(description = "Identificador único da pauta", example = "550e8400-e29b-41d4-a716-446655440001")
     private UUID idPauta;
     
-    @Schema(description = "Título da pauta")
+    @Schema(description = "Título da pauta", example = "Aprovação do orçamento anual")
     private String titulo;
     
-    @Schema(description = "Descrição detalhada da pauta")
+    @Schema(description = "Descrição detalhada da pauta", example = "Discussão e votação sobre o orçamento da empresa para o próximo ano")
     private String descricao;
     
-    @Schema(description = "Data e hora de criação da pauta")
+    @Schema(description = "Data e hora de criação da pauta", example = "2024-01-15T10:30:00Z")
     private OffsetDateTime criadaEm;
 
     /**

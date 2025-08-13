@@ -9,71 +9,71 @@ import java.time.OffsetDateTime;
  * incluindo código de erro, mensagem, timestamp e path da requisição.
  */
 public class ErrorResponse {
-    private String errorCode;
-    private String message;
-    private OffsetDateTime timestamp;
-    private String path;
+    private String codigoErro;
+    private String mensagem;
+    private OffsetDateTime dataHora;
+    private String caminho;
 
     /**
      * Construtor padrão que inicializa o timestamp com a data/hora atual.
      */
     public ErrorResponse() {
-        this.timestamp = OffsetDateTime.now();
+        this.dataHora = OffsetDateTime.now();
     }
 
     /**
      * Construtor com código de erro e mensagem.
      *
-     * @param errorCode código identificador do erro
-     * @param message mensagem descritiva do erro
+     * @param codigoErro código identificador do erro
+     * @param mensagem mensagem descritiva do erro
      */
-    public ErrorResponse(String errorCode, String message) {
+    public ErrorResponse(String codigoErro, String mensagem) {
         this();
-        this.errorCode = errorCode;
-        this.message = message;
+        this.codigoErro = codigoErro;
+        this.mensagem = mensagem;
     }
 
     /**
-     * Construtor completo com código de erro, mensagem e path da requisição.
+     * Construtor completo com código de erro, mensagem e caminho da requisição.
      *
-     * @param errorCode código identificador do erro
-     * @param message mensagem descritiva do erro
-     * @param path caminho da requisição que gerou o erro
+     * @param codigoErro código identificador do erro
+     * @param mensagem mensagem descritiva do erro
+     * @param caminho caminho da requisição que gerou o erro
      */
-    public ErrorResponse(String errorCode, String message, String path) {
-        this(errorCode, message);
-        this.path = path;
+    public ErrorResponse(String codigoErro, String mensagem, String caminho) {
+        this(codigoErro, mensagem);
+        this.caminho = caminho;
     }
 
-    public String getErrorCode() {
-        return errorCode;
+    public String getCodigoErro() {
+        return codigoErro;
     }
 
-    public void setErrorCode(String errorCode) {
-        this.errorCode = errorCode;
+    public void setCodigoErro(String codigoErro) {
+        this.codigoErro = codigoErro;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMensagem() {
+        return mensagem;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
     }
 
-    public OffsetDateTime getTimestamp() {
-        return timestamp;
+    public OffsetDateTime getDataHora() {
+        return dataHora;
     }
 
-    public void setTimestamp(OffsetDateTime timestamp) {
-        this.timestamp = timestamp;
+    public void setDataHora(OffsetDateTime dataHora) {
+        this.dataHora = dataHora;
     }
 
-    public String getPath() {
-        return path;
+    public String getCaminho() {
+        return caminho;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setCaminho(String caminho) {
+        this.caminho = caminho;
     }
 }

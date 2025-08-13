@@ -14,19 +14,19 @@ import java.util.UUID;
  */
 @Schema(description = "Dados de uma assembleia")
 public class AssembleiaDTO {
-    @Schema(description = "Identificador único da assembleia")
+    @Schema(description = "Identificador único da assembleia", example = "550e8400-e29b-41d4-a716-446655440002")
     private UUID idAssembleia;
     
     @Schema(description = "Dados da pauta associada")
     private PautaDTO pauta;
     
-    @Schema(description = "Status atual da assembleia")
+    @Schema(description = "Status atual da assembleia", example = "Aberta")
     private StatusAssembleia status;
     
-    @Schema(description = "Data e hora de início da assembleia")
+    @Schema(description = "Data e hora de início da assembleia", example = "2024-01-15T14:00:00Z")
     private OffsetDateTime iniciadaEm;
     
-    @Schema(description = "Data e hora de finalização da assembleia")
+    @Schema(description = "Data e hora de finalização da assembleia", example = "2024-01-15T16:00:00Z")
     private OffsetDateTime finalizadaEm;
 
     /**

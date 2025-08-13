@@ -15,15 +15,15 @@ import java.util.UUID;
 @Schema(description = "Dados para registro de um voto")
 public class VotoCreateDTO {
     @NotNull(message = "O ID da assembleia é obrigatório")
-    @Schema(description = "Identificador da assembleia", required = true)
+    @Schema(description = "Identificador da assembleia", required = true, example = "550e8400-e29b-41d4-a716-446655440002")
     private UUID assembleiaId;
     
     @NotNull(message = "O ID do membro é obrigatório")
-    @Schema(description = "Identificador do membro que está votando", required = true)
+    @Schema(description = "Identificador do membro que está votando", required = true, example = "550e8400-e29b-41d4-a716-446655440005")
     private UUID membroId;
     
     @NotNull(message = "A decisão do voto é obrigatória")
-    @Schema(description = "Decisão do voto (SIM ou NAO)", required = true)
+    @Schema(description = "Decisão do voto (Concordo ou Discordo)", required = true, example = "Concordo")
     private Decisao decisao;
 
     /**
