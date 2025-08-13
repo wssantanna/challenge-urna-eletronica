@@ -22,10 +22,12 @@ public class TestContainersConfig {
     }
     
     @DynamicPropertySource
-    static void configureProperties(DynamicPropertyRegistry registry, PostgreSQLContainer<?> postgres) {
+    static void configureProperties(DynamicPropertyRegistry registry) {
+        PostgreSQLContainer<?> postgres = postgresContainer();
         registry.add("spring.datasource.url", postgres::getJdbcUrl);
         registry.add("spring.datasource.username", postgres::getUsername);
         registry.add("spring.datasource.password", postgres::getPassword);
         registry.add("spring.datasource.driver-class-name", () -> "org.postgresql.Driver");
+        registry.add("spring.jpa.database-platform", () -> "org.hibernate.dialect.PostgreSQLDialect");
     }
 }

@@ -28,8 +28,8 @@ class MembroRepositoryTest extends BaseRepositoryTest {
         membroRepository.deleteAll();
         
         membro1 = new Membro("Eduardo Martins Costa", "12345678901");
-        membro2 = new Membro("Fernanda Alves Pereira", "98765432100");
-        membro3 = new Membro("Ricardo Souza Lima", "45678912345");
+        membro2 = new Membro("Fernanda Santos Pereira", "98765432100");
+        membro3 = new Membro("Ricardo Santos Lima", "45678912345");
         
         membroRepository.saveAll(List.of(membro1, membro2, membro3));
     }
@@ -73,16 +73,16 @@ class MembroRepositoryTest extends BaseRepositoryTest {
         
         assertThat(foundMembros).hasSize(2);
         assertThat(foundMembros).extracting(Membro::getNome)
-                .containsExactlyInAnyOrder("Fernanda Alves Pereira", "Juliana Santos Rocha");
+                .containsExactlyInAnyOrder("Fernanda Santos Pereira", "Ricardo Santos Lima");
     }
 
     @Test
     @DisplayName("Deve buscar membro por nome exato ignorando case")
     void shouldFindMembroByExactName() {
-        Optional<Membro> foundMembro = membroRepository.findByNomeIgnoreCase("fernanda alves pereira");
+        Optional<Membro> foundMembro = membroRepository.findByNomeIgnoreCase("fernanda santos pereira");
         
         assertThat(foundMembro).isPresent();
-        assertThat(foundMembro.get().getNome()).isEqualTo("Fernanda Alves Pereira");
+        assertThat(foundMembro.get().getNome()).isEqualTo("Fernanda Santos Pereira");
     }
 
     @Test

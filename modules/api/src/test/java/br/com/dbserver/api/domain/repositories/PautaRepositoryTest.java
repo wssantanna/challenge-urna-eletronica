@@ -29,7 +29,7 @@ class PautaRepositoryTest extends BaseRepositoryTest {
         
         pauta1 = new Pauta("Aprovação do Orçamento 2025", "Discussão sobre a aprovação do orçamento anual do condomínio");
         pauta2 = new Pauta("Mudança de Regimento Interno", "Proposta de alteração das normas de uso das áreas comuns");
-        pauta3 = new Pauta("Aprovação de Melhorias", "Discussão sobre investimentos em segurança e infraestrutura");
+        pauta3 = new Pauta("Aprovação de Melhorias", "Proposta de investimentos em segurança e infraestrutura");
         
         pautaRepository.saveAll(List.of(pauta1, pauta2, pauta3));
     }
