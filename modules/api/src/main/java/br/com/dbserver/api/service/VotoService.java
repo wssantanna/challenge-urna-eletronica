@@ -9,6 +9,7 @@ import br.com.dbserver.api.domain.repositories.MembroRepository;
 import br.com.dbserver.api.domain.repositories.PautaRepository;
 import br.com.dbserver.api.domain.repositories.VotoRepository;
 import br.com.dbserver.api.dto.VotoCreateDTO;
+import br.com.dbserver.api.dto.VotoCreateV2DTO;
 import br.com.dbserver.api.dto.VotoDTO;
 import br.com.dbserver.api.mapper.VotoMapper;
 import org.slf4j.Logger;
@@ -89,6 +90,46 @@ public class VotoService {
         Voto savedVoto = votoRepository.save(voto);
         
         log.info("Voto registrado com id: {}", savedVoto.getIdVoto());
+        
+        return votoMapper.toDTO(savedVoto);
+    }
+    
+    /**
+     * Registra um novo voto em uma assembleia usando nome e CPF do membro (V2).
+     * 
+     * Valida a existência da assembleia, busca o membro por nome e CPF,
+     * verifica se a assembleia está aberta e se o membro ainda não votou nesta assembleia.
+     *
+     * @param dto dados do voto a ser registrado (V2)
+     * @return DTO do voto registrado
+     * @throws IllegalArgumentException se assembleia/membro não existir ou membro já votou
+     */
+    public VotoDTO registerV2(VotoCreateV2DTO dto) {
+        log.info("Registrando voto V2 para assembleia: {}, membro: {} - {}", 
+                dto.getAssembleiaId(), dto.getNome(), dto.getCpf());
+        
+        Assembleia assembleia = assembleiaRepository.findById(dto.getAssembleiaId())
+            .orElseThrow(() -> new IllegalArgumentException("Assembleia não encontrada: " + dto.getAssembleiaId()));
+        
+        Optional<Membro> membroOpt = membroRepository.findByCpf(dto.getCpf());
+        if (membroOpt.isEmpty()) {
+            throw new IllegalArgumentException("Membro não encontrado com CPF: " + dto.getCpf());
+        }
+        
+        Membro membro = membroOpt.get();
+        
+        if (!membro.getNome().equalsIgnoreCase(dto.getNome().trim())) {
+            throw new IllegalArgumentException("Nome informado não confere com o nome do membro cadastrado");
+        }
+        
+        if (votoRepository.existsByAssembleiaAndMembro(assembleia, membro)) {
+            throw new IllegalArgumentException("Membro já votou nesta assembleia");
+        }
+        
+        Voto voto = new Voto(assembleia, membro, dto.getDecisao());
+        Voto savedVoto = votoRepository.save(voto);
+        
+        log.info("Voto V2 registrado com id: {}", savedVoto.getIdVoto());
         
         return votoMapper.toDTO(savedVoto);
     }
